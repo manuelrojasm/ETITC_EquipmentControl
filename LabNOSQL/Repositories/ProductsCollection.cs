@@ -4,11 +4,11 @@ using MongoDB.Driver;
 
 namespace LabNOSQL.Repositories
 {
-    public class ProductsColletion : IProductsColletion
+    public class ProductsCollection : IProductsCollection
     {
         internal MongoDBRepository _repository = new MongoDBRepository();
         private IMongoCollection<Products> Collection;
-        public ProductsColletion()
+        public ProductsCollection()
         {
             Collection = _repository.db.GetCollection<Products>("Products");
         }

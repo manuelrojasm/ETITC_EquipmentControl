@@ -9,7 +9,7 @@ namespace LabNOSQL.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private IProductsColletion db = new ProductsColletion();
+        private IProductsCollection db = new ProductsCollection();
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
         {
@@ -41,6 +41,7 @@ namespace LabNOSQL.Controllers
             await db.UpdateProduct(product);
             return Created("Actulizado", true);
         }
+
         [HttpDelete("{​id}​")]
         public async Task<IActionResult> DeleteProduct(string id)
         {

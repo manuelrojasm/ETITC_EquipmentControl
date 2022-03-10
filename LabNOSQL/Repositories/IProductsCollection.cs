@@ -2,7 +2,7 @@
 
 namespace LabNOSQL.Repositories
 {
-    public interface IProductsColletion
+    public interface IProductsCollection
     {
         Task CreateProduct(Models.Products product);
         Task<Products> ReadProduct(string id);
