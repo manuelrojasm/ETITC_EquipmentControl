@@ -6,7 +6,7 @@ namespace LabNOSQL.Repositories
 {
     public class TasksCollection : ITasksCollection
     {
-        internal MongoDBRepository _repository = new MongoDBRepository();
+        internal MongoDBContext _repository = new MongoDBContext();
         private IMongoCollection<Tasks> Collection;
         public TasksCollection()
         {
@@ -34,7 +34,7 @@ namespace LabNOSQL.Repositories
         public async Task<List<Tasks>> GetTodayTask()
         {
             var dt = DateTime.Now.Date;
-            var filter = Builders<Tasks>.Filter.Eq(s => s.StartDate, dt);
+            var filter = Builders<Tasks>.Filter.Eq(s => s.StartDate.ToString("dd/MM/yyyy"), dt.ToString("dd/MM/yyyy"));
             return await Collection.Find(filter).ToListAsync();
         }
         public async Task UpdateTask(Tasks task)
